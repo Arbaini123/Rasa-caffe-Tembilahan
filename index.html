@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rasa Cafe Tembilahan - Cita Rasa Autentik & Suasana Asri</title>
+    <style>
+        /* RESET & BASE STYLES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f7f5; /* Latar belakang putih dengan sentuhan mint sangat tipis */
+            color: #2c3e50;
+            scroll-behavior: smooth;
+        }
+
+        /* NAVIGATION */
+        nav {
+            background-color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 8%;
+            box-shadow: 0 2px 15px rgba(46, 125, 50, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: #2e7d32; /* Hijau Daun Organik */
+            letter-spacing: 0.5px;
+        }
+
+        .logo span {
+            color: #81c784; /* Hijau Mint Muda */
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #555555;
+            font-weight: 600;
+            font-size: 15px;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #2e7d32;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 8%;
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); /* Gradasi hijau pastel yang segar */
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-text {
+            max-width: 580px;
+            z-index: 2;
+        }
+
+        .hero-text h1 {
+            font-size: 46px;
+            color: #1b5e20;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .hero-text p {
+            font-size: 16.5px;
+            color: #3e2723;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .btn-cta {
+            display: inline-block;
+            background-color: #2e7d32;
+            color: #ffffff;
+            padding: 14px 35px;
+            text-decoration: none;
+            border-radius: 30px; /* Rounded pill modern */
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .btn-cta:hover {
+            background-color: #1b5e20;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(46, 125, 50, 0.4);
+        }
+
+        .hero-decor {
+            width: 350px;
+            height: 350px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+        }
+        .hero-decor::after {
+            content: "🍃";
+            font-size: 140px;
+        }
+
+        /* ABOUT SECTION */
+        .about {
+            padding: 80px 8%;
+            background-color: #ffffff;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 32px;
+            margin-bottom: 15px;
+            color: #1b5e20;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: #81c784;
+            margin: 8px auto 0 auto;
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            font-size: 15.5px;
+            color: #616161;
+            max-width: 650px;
+            margin: 20px auto 60px auto;
+            line-height: 1.7;
+        }
+
+        /* MENU SECTION */
+        .menu-section {
+            padding: 80px 8%;
+            background-color: #e8f5e9; /* Latar belakang hijau segar lembut */
+        }
+
+        .menu-category-title {
+            font-size: 22px;
+            color: #2e7d32;
+            margin: 40px 0 20px 0;
+            font-weight: 700;
+            border-left: 4px solid #81c784;
+            padding-left: 10px;
+        }
+
+        .menu-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .menu-card {
+            background-color: #ffffff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(129, 199, 132, 0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(46, 125, 50, 0.1);
+            border-color: #81c784;
+        }
+
+        .menu-card h3 {
+            font-size: 19px;
+            margin-bottom: 8px;
+            color: #1b5e20;
+        }
+
+        .menu-card p {
+            font-size: 14px;
+            color: #616161;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .menu-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+            padding-top: 10px;
+            border-top: 1px dashed #e0e0e0;
+        }
+
+        .menu-price {
+            font-weight: 700;
+            color: #2e7d32;
+            font-size: 16px;
+        }
+
+        .menu-tag {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        /* CONTACT & LOCATION SECTION */
+        .contact {
+            padding: 80px 8%;
+            background-color: #ffffff;
+        }
+
+        .contact-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            flex: 1;
+            background: #f4f7f5;
+            border: 1px solid rgba(129, 199, 132, 0.3);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.01);
+        }
+
+        .info-group {
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        .info-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-group h4 {
+            font-size: 16px;
+            color: #1b5e20;
+            margin-bottom: 6px;
+            font-weight: 700;
+        }
+
+        .info-group p {
+            font-size: 15px;
+            color: #424242;
+            line-height: 1.6;
+        }
+
+        .info-group a {
+            color: #2e7d32;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .info-group a:hover {
+            text-decoration: underline;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: #1b5e20;
+            color: #ffffff;
+            text-align: center;
+            padding: 30px;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            line-height: 1.6;
+        }
+
+        /* RESPONSIVE LAYOUT */
+        @media (max-width: 768px) {
+            nav { padding: 15px 5%; }
+            nav ul { display: none; } 
+            .hero { flex-direction: column; text-align: center; padding: 60px 5%; height: auto; }
+            .hero-text { max-width: 100%; margin-bottom: 40px; }
+            .hero-decor { width: 220px; height: 220px; }
+            .hero-decor::after { font-size: 90px; }
+            .contact-flex { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BANNER NAVIGASI -->
+    <nav>
+        <div class="logo">Rasa<span>Cafe</span></div>
+        <ul>
+            <li><a href="#home">Beranda</a></li>
+            <li><a href="#about">Tentang Kami</a></li>
+            <li><a href="#menu">Daftar Menu</a></li>
+            <li><a href="#contact">Alamat & Kontak</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="hero-text">
+            <h1>Temukan Rasa Terbaik di Jantung Tembilahan.</h1>
+            <p>Selamat datang di Rasa Cafe. Tempat berkumpul paling asri di Indragiri Hilir yang menghidangkan kombinasi kopi premium lokal, minuman segar botani, serta racikan kuliner Nusantara dengan suasana nyaman bernuansa alam hijau.</p>
+            <a href="#menu" class="btn-cta">Jelajahi Menu Lengkap</a>
+        </div>
+        <div class="hero-decor"></div>
+    </section>
+
+    <!-- TENTANG KAFE -->
+    <section class="about" id="about">
+        <h2 class="section-title">Tentang Rasa Cafe</h2>
+        <p class="section-subtitle">Didirikan dengan misi menghadirkan ruang santai keluarga dan anak muda yang menyegarkan di Tembilahan. Rasa Cafe mengusung konsep interior semi-outdoor dengan tanaman hijau hidup, menjadikannya tempat ideal untuk melepas penat, merayakan momen, atau sekadar bekerja dengan tenang.</p>
+    </section>
+
+    <!-- DAFTAR MENU LENGKAP -->
+    <section class="menu-section" id="menu">
+        <div style="text-align: center;">
+            <h2 class="section-title">Daftar Menu Spesial</h2>
+            <p class="section-subtitle" style="margin-bottom: 20px;">Dari racikan kopi lokal pilihan hingga hidangan makanan utama penambah energi Anda.</p>
+        </div>
+
+        <!-- KATEGORI MAKANAN -->
+        <div class="menu-category-title">Hidangan Makanan Utama & Camilan</div>
+        <div class="menu-container">
+            <div class="menu-card">
+                <div>
+                    <h3>Nasi Goreng Kampung Hijau</h3>
+                    <p>Nasi goreng bumbu rempah tradisional khas Riau dengan suwiran ayam, telur mata sapi, kerupuk, dan sambal hijau spesial.</p>
+                </div>
+                <div class="menu-meta">
+                    <span class="menu-tag">Makanan Utama</span>
+                    <span class="menu-price">Rp 23.000</span>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <div>
+                    <h3>Ayam Bakar Madu Asri</h3>
+                    <p>Ayam pilihan yang diungkep bumbu kuning, dibakar lambat dengan olesan madu murni, disajikan bersama nasi hangat dan lalapan lengkap.</p>
+                </div>
+                <div class="menu-meta">
+                    <span class="menu-tag">Makanan Utama</span>
+                    <span class="menu-price">Rp 28.000</span>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <div>
+                    <h3>Mie Sagu Goreng Tembilahan</h3>
+                    <p>Kuliner autentik mie sagu khas daerah pesisir yang kenyal, dimasak dengan tauge, ikan teri medan, dan tingkat kepedasan sesuai selera.</p>
+                </div>
+                <div class="menu-meta">
+                    <span class="menu-tag">Khas Daerah</span>
+                    <span class="menu-price">Rp 18.000</span>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <div>
+                    <h3>Platter Gorengan Komunal</h3>
+                    <p>Kombinasi camilan renyah dalam satu piring besar: kentang goreng, sosis bakar cuts, nugget, dan bakso goreng renyah dengan saus cocol.</p>
+                </div>
+                <div class="menu-meta">
+                    <span class="menu-tag">Camilan</span>
+                    <span class="menu-price">Rp 20.000</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- KATEGORI MINUMAN -->
+        <div class="menu-category-title">Minuman Dingin & Racikan Kopi</div>
+        <div class="menu-container">
+            <div class="menu-card">
+                <div>
+                    <h3>Matcha Creamy Float</h3>
+                    <p>Teh hijau Jepang murni premium berpadu susu segar gurih, disajikan dingin dengan toping satu scope es krim vanila lembut.</p>
+                </div>
+                <div class="menu-meta">
+                    <span class="menu-tag">Signature Green</span>
+                    <span class="menu-price">Rp 22.000</span>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <div>
+                    <h3>Es Kopi Susu Rasa</h3>
+                    <p>Menu kopi andalan berbahan dasar espresso arabika-robusta, susu segar, dan sirup rahasia Rasa Cafe yang legit.</p>
+                </div>
+                <div class="menu-meta">
+                    <span class="menu-tag">Kopi Best Seller</span>
+                    <span class="menu-price">Rp 17.000</span>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <div>
+                    <h3>Mint Mojito Botanical</h3>
+                    <p>Minuman ultra segar perpaduan dari air soda jernih, sirup jeruk nipis alami, dan tumbukan daun mint asli yang mendinginkan tenggorokan.</p>
+                </div>
+                <div class="menu-meta">
+                    <span class="menu-tag">Mocktail Segar</span>
+                    <span class="menu-price">Rp 19.000</span>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <div>
+                    <h3>Artisan Avocado Coffee</h3>
+                    <p>Jus alpukat mentega kental asli yang dipadukan dengan sirup cokelat premium dan disiram satu shot espresso pahit di atasnya.</p>
+                </div>
+                <div class="menu-meta">
+                    <span class="menu-tag">Kopi & Buah</span>
+                    <span class="menu-price">Rp 25.000</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ALAMAT LENGKAP & KONTAK -->
+    <section class="contact" id="contact">
+        <div style="text-align: center;">
+            <h2 class="section-title">Lokasi Fisik & Reservasi</h2>
+            <p class="section-subtitle">Silakan datang langsung ke outlet kami atau hubungi manajemen untuk mengadakan acara komunitas/ulang tahun.</p>
+        </div>
+
+        <div class="contact-flex">
+            <div class="contact-info" style="width: 100%;">
+                <div class="info-group">
+                    <h4>📍 Alamat Lengkap Outlet:</h4>
+                    <p>Jl. Swarna Bumi (Samping Lapangan Upacara / Dekat Area Taman Kota), Tembilahan Kota, Kabupaten Indragiri Hilir, Riau, Kode Pos 29212.</p>
+                </div>
+                <div class="info-group">
+                    <h4>📞 Hubungi Nomor Manajemen:</h4>
+                    <p>WhatsApp / Telepon Layanan Pelanggan: <a href="https://wa.me/6285167874665" target="_blank">085167874665</a></p>
+                </div>
+                <div class="info-group">
+                    <h4>⏰ Jam Operasional Setiap Hari:</h4>
+                    <p>Senin - Minggu: Pukul 11.00 WIB s/d 23.30 WIB (Dapur tutup pukul 23.00 WIB)</p>
+                </div>
+                <div class="info-group">
+                    <h4>✨ Fasilitas Utama:</h4>
+                    <p>Area Parkir Luas, Musholla, Wi-Fi Gratis Kecepatan Tinggi, Live Music Akhir Pekan, dan Area Semi-Outdoor yang Sejuk.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Rasa Cafe Tembilahan. Semua Hak Cipta Dilindungi Undang-Undang.</p>
+        <p style="font-size: 12px; color: #a5d6a7; margin-top: 5px;">Penulis / Pengembang Web: <strong>Arbaini</strong></p>
+    </footer>
+
+</body>
+</html>
